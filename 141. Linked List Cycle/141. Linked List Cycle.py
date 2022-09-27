@@ -5,6 +5,24 @@
 #         self.next = None
 
 class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        try:
+            s=head.next.next
+            p=head.next
+        except Exception:
+            return False
+        while s!=None or p!=None:
+            if s==p:
+                return True
+            try:
+                s=s.next.next
+                p=p.next
+            except:
+                return False
+        return False
+    
+
+class Solution:
     def hasCycle(self, head):
         slow = head
         fast = head
@@ -17,4 +35,3 @@ class Solution:
                 return True
         
         return False
-            
