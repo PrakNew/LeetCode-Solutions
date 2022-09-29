@@ -1,3 +1,24 @@
+
+# there is a pattern like you have to first swap the biggest element to the first position and then swap back to the position where it actually belongs so this is how the question proceeds
+
+class Solution:
+    def pancakeSort(self, arr: List[int]) -> List[int]:
+        if arr==sorted(arr):
+            return []
+        n=len(arr)
+        l=[]
+        for x in range(n,0,-1):
+            j=arr.index(x)
+            if j==(x-1):
+                continue
+            if j != 0:
+                l.append(j+1)
+                arr=arr[:j+1][::-1]+arr[j+1:]
+            l.append(x)
+            arr=arr[:x][::-1]+arr[x:]
+        return l
+
+
 class Solution:
     def pancakeSort(self, A):
         def flip(A, k):
