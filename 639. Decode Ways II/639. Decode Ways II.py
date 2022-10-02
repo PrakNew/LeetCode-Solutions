@@ -3,7 +3,8 @@
 # Decode Ways
 # Click on the above link
 
-# if you have understood the above solution then in below if we use DP we will end up in memory limit exceeded so in order to understand like what needs to be done we just need to modify it to 3 variables as in the below code and use the same logic but instead if * comes first then mulitiply by 9 and similar cases lik 1* means 18 and 2* means 6 and ** means 15 on similar basis you can also solve this problem
+# if you have understood the above solution then in below if we use DP we will end up in memory limit exceeded so in order to understand like what needs to be done we just need to modify it to 3 variables as in the below code and use the same logic but instead if * comes first then mulitiply by 9 and similar cases 
+# like 1* means 18 and 2* means 6 and ** means 15 on similar basis you can also solve this problem
 
 class Solution:
     def numDecodings(self, s: str) -> int:
