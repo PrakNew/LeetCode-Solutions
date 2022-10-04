@@ -2,6 +2,19 @@
 Time complexity : O(n)
 Space complexity: O(n)
 '''
+class Solution:
+    def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
+        self.l=[]
+        def check(root,s):
+            if not root.left and not root.right:
+                s+=str(root.val)
+                self.l.append(s)
+            s += f'{str(root.val)}->'
+            if root.left:check(root.left,s)
+            if root.right:check(root.right,s)
+
+        check(root,'')
+        return self.l
 
 import collections
 
@@ -28,7 +41,7 @@ class Solution:
             res = []
             util(root, [str(root.val)], res)
             return res
-        
+
         def iterative():
             if not root:
                 return []
@@ -42,6 +55,5 @@ class Solution:
                 if node.left: q.append((node.left, path + [str(node.left.val)]))
                 if node.right: q.append((node.right, path + [str(node.right.val)]))
             return res
-        
+
         return recursive()
-        return iterative()

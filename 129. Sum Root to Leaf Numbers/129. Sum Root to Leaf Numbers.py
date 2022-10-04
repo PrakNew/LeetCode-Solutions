@@ -1,3 +1,22 @@
+
+#created recursion function to call simply
+
+class Solution:
+    def sumNumbers(self, root: Optional[TreeNode]) -> int:
+        self.c=0
+        def check(root,s):
+            if root.left is None and root.right is None:
+                s+=str(root.val)
+                self.c+=int(s)
+            s+=str(root.val)
+            if root.left:check(root.left,s)
+            if root.right:check(root.right,s)
+
+        check(root,'')
+        return self.c
+
+
+
 import collections
 
 # Definition for a binary tree node.
