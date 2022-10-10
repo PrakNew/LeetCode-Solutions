@@ -1,3 +1,21 @@
+#simple implementation method
+from collections import defaultdict
+from bisect import *
+class TimeMap:
+
+    def __init__(self):
+        self.d1=defaultdict(list)
+        self.d2=defaultdict(list)
+    def set(self, key: str, value: str, timestamp: int) -> None:
+        insort(self.d1[key],timestamp)
+        self.d2[(key,timestamp)]=value
+
+    def get(self, key: str, timestamp: int) -> str:
+        l1=bisect(self.d1[key],timestamp)
+        return "" if l1==0 else self.d2[(key,self.d1[key][l1-1])]
+
+
+
 import collections
 import bisect
 
