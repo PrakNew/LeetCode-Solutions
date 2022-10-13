@@ -6,7 +6,7 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-
+// This is a way to iterate over the linkedlist using ->
 class Solution {
 public:
     void deleteNode(ListNode* node) {
