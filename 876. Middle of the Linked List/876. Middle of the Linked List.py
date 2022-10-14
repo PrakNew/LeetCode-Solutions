@@ -8,14 +8,11 @@
 def middleNode(head):
     # Two pointers - slow and fast pointers
     slow, fast = head, head
-    
+
     while fast.next and fast.next.next:
         slow = slow.next
         fast = fast.next.next
-    
+
     # containts even number of elements
-    if fast.next!=None:
-        return slow.next
-    
-    return slow
+    return slow.next if fast.next!=None else slow
         
