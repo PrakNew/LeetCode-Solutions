@@ -16,6 +16,17 @@ class Solution:
         z=list(product(*l))
         z=list(map(lambda x:''.join(x),z))
         return z
+        #method 2
+        def dfs(ind,prev):
+            k=d[digits[ind]]
+            if ind==len(digits)-1:
+                for x in k:
+                    abc.append(prev+x)
+            else:
+                for x in k:
+                    dfs(ind+1,prev+x)
+        dfs(0,'')
+        return abc
 
 
 class Solution:
