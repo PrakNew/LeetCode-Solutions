@@ -2,6 +2,14 @@
 Time complexity : O(n)
 Space complexity: O(n)
 """
+class Solution:
+    def licenseKeyFormatting(self, s: str, k: int) -> str:
+        s=''.join(s.split('-')).upper()
+        l=[]
+        print(s)
+        for x in range(len(s)-k,-k,-k):
+            l=[s[max(x,0):x+k]]+l
+        return '-'.join(l)
 
 class Solution:
     def licenseKeyFormatting(self, S, K):
