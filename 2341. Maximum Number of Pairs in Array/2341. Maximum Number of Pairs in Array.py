@@ -6,9 +6,7 @@ class Solution:
         d=Counter(nums)
         l=[0,0]
         for x in d:
-            if d[x]%2==0:
-                l[0]+=d[x]//2
-            else:
-                l[0]+=d[x]//2
+            l[0]+=d[x]//2
+            if d[x] % 2 != 0:
                 l[1]+=1
         return l
