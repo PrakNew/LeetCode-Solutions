@@ -2,6 +2,26 @@
 Time complexity : O(n)
 Space complexity : O(min(n, k))
 */
+// easy solution just brute force
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        map<int,int> ma;
+        for (int i=0;i<nums.size();i++){
+            if (ma.find(nums[i])!=ma.end()){
+                int d=i-ma[nums[i]];
+                if (d<=k){
+                    return true;
+                }
+                ma[nums[i]]=i;
+            }
+            else{
+                ma[nums[i]]=i;
+            }
+        }
+        return false;
+    }
+};
 
 #include<vector>
 #include<map>
