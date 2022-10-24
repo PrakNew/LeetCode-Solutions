@@ -1,3 +1,14 @@
+#easy solution
+
+class Solution:
+    def sortArrayByParity(self, nums: List[int]) -> List[int]:
+        l=[]
+        for x in nums:
+            if x%2==0:l.insert(0,x)
+            else:l.append(x)
+        return l
+
+
 class Solution:
     def sortArrayByParity(self, A):
         i = 0
