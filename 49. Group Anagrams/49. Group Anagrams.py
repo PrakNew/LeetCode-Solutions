@@ -1,3 +1,12 @@
+#pattern based question is here
+from collections import defaultdict
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        d=defaultdict(list)
+        for x in strs:
+            d[tuple(sorted(x))].append(x)
+        return list(d.values())
+
 import collections
 
 class Solution:
