@@ -12,7 +12,32 @@ Idea: Solve it on paper. Maintain two stacks: one for operators and one for numb
      Space complexity: O(n)
 '''
 
-
+class Solution:
+    def calculate(self, s: str) -> int:
+        s = '(' + s.replace(' ', '') + ')'
+        stack, n, i = [], len(s), 0
+        while i < n:
+            if s[i].isdigit():
+                num = ''
+                while s[i].isdigit():
+                    num += s[i]
+                    i += 1
+                stack.append(num)
+                continue
+            if s[i] != ')': 
+                stack.append(s[i])
+                i += 1
+                continue
+            tmp = []
+            while stack[-1] != '(':
+                num, sign = int(stack.pop()), 1
+                while stack[-1] in ['+', '-']:
+                    if stack.pop() == '-': sign *= -1
+                tmp.append(num * sign)
+            stack.pop()
+            stack.append(str(sum(tmp)))
+            i += 1
+        return int(stack[0])
 import collections
 
 class Solution:
