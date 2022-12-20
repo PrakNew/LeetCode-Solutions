@@ -1,3 +1,16 @@
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        s=set(rooms[0])
+        visited=set()
+        while s:
+            for x in list(s):
+                if x in visited:
+                    s.remove(x)
+                else:
+                    visited.add(x)
+                    s|=set(rooms[x])
+        if 0 not in visited:visited.add(0)
+        return visited==set(range(len(rooms)))
 import collections
 
 class Solution:
