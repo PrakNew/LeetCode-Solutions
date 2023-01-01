@@ -1,3 +1,7 @@
+#Python 1 liner
+class Solution(object):
+    def wordPattern(self, pattern, s):
+        return len(set(zip(pattern,s.split(" "))))==len(set(pattern)) and len(set(pattern))==len(set(s.split(" "))) and len(pattern)==len(s.split(" "))
 import collections
 
 class Solution:
