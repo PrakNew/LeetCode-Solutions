@@ -2,7 +2,10 @@
 Time complexity: O(n)
 Space complexity: O(1)
 '''
-
+#Python 1 liner
+class Solution:
+    def detectCapitalUse(self, word: str) -> bool:
+        return word.isupper() or word.islower() or word.istitle()
 class Solution:
     def detectCapitalUse(self, word):        
         ct = sum(1 for ch in word if 'A'<=ch<='Z')
