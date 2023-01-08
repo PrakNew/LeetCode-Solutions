@@ -1,3 +1,24 @@
+# Following the slope formulae y=mx + b and finding m,b in the question 
+class Solution:
+    def maxPoints(self, points: List[List[int]]) -> int:
+        if len(points)==1:
+            return 1
+        def slope(p1,p2):
+            if p2[0]-p1[0] == 0:
+                return (p1[0])
+            slope = (p2[1]-p1[1]) / (p2[0]-p1[0])                
+            b = p1[1] - slope * p1[0]
+            return (slope,"%.5f" % b)
+        d=defaultdict(set)
+        for p1,p2 in itertools.product(points,points):
+            if p1!=p2:
+                slp=slope(p1,p2)
+                d[slp].add(tuple(p1))
+                d[slp].add(tuple(p2))
+        # print(d)
+        # print(slope((1,1),(2,1)))
+        return len(sorted(d.values(),key=lambda x:len(x))[-1])
+
 class Solution:
     def maxPoints(self, points):
         n = len(points)
