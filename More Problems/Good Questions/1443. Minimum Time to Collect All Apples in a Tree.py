@@ -1,6 +1,8 @@
 # This is a tricky question which states that if we visit a node where there is apple then we have to do ans+2
 # and also the trick is we have to do ans+2 for all the parent nodes 
 
+from collections import defaultdict
+from typing import List
 class Solution:
     def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
         d=defaultdict(list)
