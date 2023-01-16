@@ -1,3 +1,23 @@
+# Here I am inserting the newInterval element to the bisect_left value and simply following the pattern of insertion 
+
+class Solution:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        insertI = bisect_left(intervals, newInterval)
+        intervals.insert(insertI, newInterval)
+        stack = []
+        print(intervals)
+        for s,e in intervals:
+            if stack and stack[-1][1] >= s: #pattern of insertion 
+                lastS,lastE = stack.pop()
+                stack.append([lastS, max(lastE,e)])
+            else:
+                stack.append([s,e])
+        return stack
+
+
+
+
+
 '''
 Idea: First insert intervals towards left of the newInterval. Then merge all the intervals which intersect with new
       interval. Add the new interval to the result, followed by all the intervals to the right of the new interval
