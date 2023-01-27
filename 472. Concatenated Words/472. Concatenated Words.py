@@ -1,3 +1,28 @@
+#Brute Force method using DFS 
+class Solution(object):
+    def findAllConcatenatedWordsInADict(self, words):
+        """
+        :type words: List[str]
+        :rtype: List[str]
+        """
+        def check(word, count):
+            if word == "" and count >= 2:
+                return True
+            s1 = ""
+            for i in range(len(word)):
+                s1 += word[i]
+                if s1 in self.words_set and check(word[i + 1 :], count + 1):
+                    return True
+            return False
+
+        self.words_set = set(words)
+        final = []
+        for w in words:
+            if check(w, 0):
+                final.append(w)
+
+        return final
+
 import collections
 
 class TrieNode:
