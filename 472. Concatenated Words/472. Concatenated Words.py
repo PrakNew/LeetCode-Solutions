@@ -1,4 +1,4 @@
-#Brute Force method using DFS 
+#Brute Force method using DFS  
 class Solution(object):
     def findAllConcatenatedWordsInADict(self, words):
         """
