@@ -1,3 +1,25 @@
+class Solution:
+    def shortestAlternatingPaths(self, n: int, redEdges: List[List[int]], blueEdges: List[List[int]]) -> List[int]:
+        color=defaultdict(list)
+        for x,y in redEdges:
+            color[x].append([y,0])
+        for x,y in blueEdges:
+            color[x].append([y,1])
+        queue=[[0,0,2]]
+        visited=set()
+        dist={}
+        final=[-1]*n
+        while queue:
+            node,cnt,col=queue.pop(0)
+            visited.add((node,col))
+            if node not in dist:dist[node]=cnt
+            final[node]=dist[node]
+            for y,col1 in color[node]:
+                if (y,col1) not in visited and col1!=col:
+                    queue.append([y,cnt+1,col1])
+        return final
+
+
 """
 Idea: Maintain two graphs and perform BFS choosing nodes alternatively 
         from both the graphs
